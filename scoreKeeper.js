@@ -3,25 +3,32 @@ var p2Button = document.getElementById('p2');
 var resetButton = document.querySelector('#reset');
 var p1Display = document.querySelector('#p1Display');
 var p2Display = document.getElementById('p2Display');
+var numInput = document.querySelector('input');
+var winningScoreDisplay = document.querySelector('p span');
 var p1Score = 0;
 var p2Score = 0;
 var winningScore = 5;
 var gameOver = false;
 
+
 p1Button.addEventListener('click', function(){
+    //console.log(p1Score , p2Score);
     if(!gameOver){
         p1Score++;
         if(p1Score === winningScore){
             p1Display.classList.add('winner');
+            
             gameOver = true;
         }
         p1Display.textContent = p1Score;
+        
     }
   
 
 });
 
 p2Button.addEventListener('click', function(){
+    //console.log(p1Score , p2Score);
    if(!gameOver){
        p2Score++;
        if(p2Score === winningScore){
@@ -41,5 +48,14 @@ resetButton.addEventListener('click', function(){
     p1Display.classList.remove('winner');
     p2Display.classList.remove('winner');
     gameOver = false;
+   
+});
+
+numInput.addEventListener('change', function(){
+    var num = numInput.value;
+    winningScoreDisplay.textContent = num;
+    winningScore = num;
+    // Number(numInput.value);
+
    
 });
