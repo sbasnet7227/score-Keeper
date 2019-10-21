@@ -52,10 +52,14 @@ resetButton.addEventListener('click', function(){
 });
 
 numInput.addEventListener('change', function(){
-    var num = numInput.value;
-    winningScoreDisplay.textContent = num;
-    winningScore = num;
-    // Number(numInput.value);
+    var num = Number(numInput.value);
+    if(num >0){
+        winningScoreDisplay.textContent = num;
+        winningScore = num;
+
+    }
+    
+    // 
 
    
 });
